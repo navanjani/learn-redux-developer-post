@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 const initialState = {
   loading: false,
   posts: [],
@@ -12,7 +13,8 @@ const feedSlice = createSlice({
       state.loading = true;
     },
     postsFetched: (state, action) => {
-      state.posts = [...action.payload];
+      console.log(action);
+      state.posts = [...state.posts, ...action.payload];
       state.loading = false;
     },
   },
